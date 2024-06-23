@@ -29,13 +29,13 @@ const clicked = ref(false);
 const emits = defineEmits(["click"]);
 
 const handleClick = (e) => {
-  emits("click", e);
-
   if (props.disabled) return;
   clicked.value = true;
   setTimeout(() => {
     clicked.value = false;
   }, 100);
+
+  emits("click", e);
 };
 
 onMounted(() => {
@@ -63,7 +63,6 @@ onMounted(() => {
     </div>
   </div>
 </template>
-
 <style lang="scss">
 .button {
   position: relative;
